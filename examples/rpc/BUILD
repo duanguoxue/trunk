@@ -5,7 +5,7 @@ proto_library(
   src = "bank.proto",
   has_service = True,
   generate_cc = True,
-  generate_java = True,
+  #generate_java = True,
 )
 
 cc_binary(

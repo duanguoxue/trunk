@@ -153,7 +153,7 @@ def proto_library(name, src, deps=[],
   if generate_cc:
     cc_deps = ["//external:protobuf_clib"]
     if has_service:
-      cc_deps += ["//external:grpc++"]
+      cc_deps += ["//external:grpc++_reflection"]
     cc_deps += deps
     native.cc_library(
       name = name,

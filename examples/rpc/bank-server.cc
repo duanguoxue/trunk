@@ -52,7 +52,7 @@ static void RunServer() {
 
 int main(int argc, char** argv) {
   google::InstallFailureSignalHandler();
-  google::ParseCommandLineFlags(&argc, &argv, false);
+  //google::ParseCommandLineFlags(&argc, &argv, false);
   google::InitGoogleLogging(argv[0]);
   examples::RunServer();
 

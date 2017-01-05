@@ -68,7 +68,8 @@ class ServerImpl final {
 
     ServerBuilder builder;
     builder.AddListeningPort(server_address, grpc::InsecureServerCredentials());
-    builder.RegisterAsyncService(&service_);
+    builder.RegisterService(&service_);
+    //builder.RegisterAsyncGenericService(&service_);
     cq_ = builder.AddCompletionQueue();
     server_ = builder.BuildAndStart();
     std::cout << "Server listening on " << server_address << std::endl;

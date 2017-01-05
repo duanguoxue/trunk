@@ -45,8 +45,8 @@ bind(
 
 # GRPC C++ runtime library
 bind(
-  name = "grpc++",
-  actual = "//third_party/grpc/upstream:grpc++"
+  name = "grpc++_reflection",
+  actual = "//third_party/grpc/upstream:grpc++_reflection"
 )
 
 maven_jar(
