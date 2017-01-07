@@ -9,6 +9,7 @@ cc_binary(
     "//base:build_info",
     "//third_party/gflags",
     "//third_party/glog",
+    "//third_party/folly:futures",
   ],
   stamp = 1,
 )
