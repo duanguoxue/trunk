@@ -7,9 +7,6 @@
 [submodule "third_party/gflags/upstream"]
 	path = third_party/gflags/upstream
 	url = https://github.com/gflags/gflags.git
-[submodule "third_party/bazel/upstream"]
-	path = third_party/bazel/upstream
-	url = https://github.com/google/bazel
 [submodule "third_party/protobuf/upstream"]
 	path = third_party/protobuf/upstream
 	url = https://github.com/google/protobuf.git
@@ -160,30 +157,6 @@
 [submodule "third_party/gperftools/upstream"]
 	path = third_party/gperftools/upstream
 	url = https://github.com/mzhaom/gperftools.git
-[submodule "third_party/java/guava/upstream"]
-	path = third_party/java/guava/upstream
-	url = https://github.com/google/guava
-[submodule "third_party/java/error-prone"]
-	path = third_party/java/error-prone
-	url = https://github.com/google/error-prone.git
-[submodule "third_party/java/netty"]
-	path = third_party/java/netty
-	url = https://github.com/LuminateWireless/netty.git
-[submodule "third_party/java/commons-logging/upstream"]
-	path = third_party/java/commons-logging/upstream
-	url = https://github.com/apache/commons-logging.git
-[submodule "third_party/java/log4j/upstream"]
-	path = third_party/java/log4j/upstream
-	url = https://github.com/apache/log4j.git
-[submodule "third_party/java/slf4j/upstream"]
-	path = third_party/java/slf4j/upstream
-	url = https://github.com/qos-ch/slf4j.git
-[submodule "third_party/java/javassit/upstream"]
-	path = third_party/java/javassit/upstream
-	url = https://github.com/jboss-javassist/javassist.git
-[submodule "third_party/java/javassist/upstream"]
-	path = third_party/java/javassist/upstream
-	url = https://github.com/jboss-javassist/javassist.git
 [submodule "third_party/zlib/upstream"]
 	path = third_party/zlib/upstream
 	url = https://github.com/madler/zlib.git
@@ -202,7 +175,6 @@
 [submodule "third_party/gtest/github"]
         path = third_party/gtest/github
         url = https://github.com/google/googletest.git
-
 [submodule "third_party/boost/upstream/thread"]
 	path = third_party/boost/upstream/thread
 	url = https://github.com/boostorg/thread.git
