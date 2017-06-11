@@ -193,3 +193,9 @@
 [submodule "third_party/nanopb"]
 	path = third_party/nanopb
 	url = https://github.com/LuminateWireless/nanopb.git
+[submodule "third_party/jemalloc/upstream"]
+	path = third_party/jemalloc/upstream
+	url = https://github.com/jemalloc/jemalloc.git
+[submodule "third_party/rocksdb/upstream"]
+	path = third_party/rocksdb/upstream
+	url = https://github.com/facebook/rocksdb.git
