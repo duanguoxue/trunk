@@ -37,6 +37,7 @@ DEFINE_int32(threads, 0, "Number of threads to listen on. Numbers <= 0 "
 class EchoHandlerFactory : public RequestHandlerFactory {
  public:
   void onServerStart(folly::EventBase* evb) noexcept override {
+    std::cout << "new EchoStats..." << std::endl;
     stats_.reset(new EchoStats);
   }
 
@@ -45,6 +46,7 @@ class EchoHandlerFactory : public RequestHandlerFactory {
   }
 
   RequestHandler* onRequest(RequestHandler*, HTTPMessage*) noexcept override {
+    std::cout << "onRequest ..." << std::endl;
     return new EchoHandler(stats_.get());
   }
 
@@ -62,9 +64,13 @@ int main(int argc, char* argv[]) {
     {SocketAddress(FLAGS_ip, FLAGS_spdy_port, true), Protocol::SPDY},
     {SocketAddress(FLAGS_ip, FLAGS_h2_port, true), Protocol::HTTP2},
   };
+  std::cout << "http_port:" << FLAGS_http_port << std::endl;
+  std::cout << "spdy_port:" << FLAGS_spdy_port << std::endl;
+  std::cout << "h2_port:" << FLAGS_h2_port << std::endl;
 
   if (FLAGS_threads <= 0) {
-    FLAGS_threads = sysconf(_SC_NPROCESSORS_ONLN);
+    //FLAGS_threads = sysconf(_SC_NPROCESSORS_ONLN);
+    FLAGS_threads = 4;
     CHECK(FLAGS_threads > 0);
   }
 
@@ -76,6 +82,7 @@ int main(int argc, char* argv[]) {
   options.handlerFactories = RequestHandlerChain()
       .addThen<EchoHandlerFactory>()
       .build();
+  std::cout << "start thd number: " << FLAGS_threads << std::endl;
 
   HTTPServer server(std::move(options));
   server.bind(IPs);

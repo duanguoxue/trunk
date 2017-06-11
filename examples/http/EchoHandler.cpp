@@ -21,6 +21,9 @@ EchoHandler::EchoHandler(EchoStats* stats): stats_(stats) {
 }
 
 void EchoHandler::onRequest(std::unique_ptr<HTTPMessage> headers) noexcept {
+  std::cout << "process http request msg." <<std::endl;
+  std::cout << headers->getQueryParam("call") <<std::endl;
+  std::cout << headers->getQueryParam("log") <<std::endl;
   stats_->recordRequest();
 }
 
@@ -33,12 +36,15 @@ void EchoHandler::onBody(std::unique_ptr<folly::IOBuf> body) noexcept {
 }
 
 void EchoHandler::onEOM() noexcept {
+  const char* rbody = "{\"key\":\"dgx\"}";
   ResponseBuilder(downstream_)
     .status(200, "OK")
     .header("Request-Number",
             folly::to<std::string>(stats_->getRequestCount()))
-    .body(std::move(body_))
+    //.body(std::move(body_))
+    .body(rbody)
     .sendWithEOM();
+  std::cout << "send response,status:" << stats_->getRequestCount() << std::endl;
 }
 
 void EchoHandler::onUpgrade(UpgradeProtocol protocol) noexcept {
@@ -46,10 +52,12 @@ void EchoHandler::onUpgrade(UpgradeProtocol protocol) noexcept {
 }
 
 void EchoHandler::requestComplete() noexcept {
+  std::cout << "request Complete." <<std::endl;
   delete this;
 }
 
 void EchoHandler::onError(ProxygenError err) noexcept {
+  std::cout << "onError." <<std::endl;
   delete this;
 }
 
